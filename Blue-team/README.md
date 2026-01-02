@@ -20,36 +20,45 @@ This lab reproduces a realistic Blue Team environment used in professional SOC t
 ---
 
 ## 🛠️ Technologies Used
+### 🖥️ Virtualized Environment
+- VirtualBox
+- Windows 10 VM (Attack & monitored endpoint)
+- Ubuntu 24.04.3-desktop VM (SIEM & monitoring stack)
+
 
 ### 🖥️ Endpoints & Logging
 - Windows 10  
-- Sysmon (advanced Windows logging)  
-- Windows Event Logging  
+  - Sysmon (advanced Windows logging)  
+  - Windows Event Logging  
+  - PowerShell Logging
+  - Event Viewer
 
 ### 📡 SIEM / Monitoring
-- Wazuh (open-source SIEM)  
-- Elastic Stack (Elasticsearch + Logstash + Kibana)  
+- Wazuh Manager (hosted on Ubuntu)  
+- Elastic Stack  
+  - Elasticsearch
+  - Logstash
+  - Kibana
 - Wazuh Dashboard  
 
 ### ⚙️ Blue Team Tools
 - Sigma Rules  
 - MITRE ATT&CK  
 - VirusTotal / OSINT  
-- PowerShell logging  
-- Event Viewer  
+- PowerShell logging   
 
 ---
 
 ## 📘 Project Steps
 
-### 1️⃣ SIEM Installation
+### 1️⃣ SIEM Installation (Ubuntu VM)
 - Deployment of **Wazuh Manager**  
 - Deployment of **Elasticsearch & Kibana**  
 - Configuration of the Wazuh dashboard  
 
 ---
 
-### 2️⃣ Endpoint Configuration
+### 2️⃣ Endpoint Configuration (Windows VM)
 - Installation of the Wazuh Agent on Windows  
 - Installation of Sysmon with the *SwiftOnSecurity* configuration  
 - Forwarding Sysmon and Windows logs to the SIEM  
